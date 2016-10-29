@@ -1,11 +1,11 @@
 //数组元素去重
-function unique1(array){
-  var n = []; //一个新的临时数组
+export const function uniqueArr(array){
+  var newArr = []; //一个新的临时数组
   //遍历当前数组
   for(var i = 0; i < array.length; i++){
     //如果当前数组的第i已经保存进了临时数组，那么跳过，
     //否则把当前项push到临时数组里面
-    if (n.indexOf(array[i]) == -1) n.push(array[i]);
+    if (newArr.indexOf(array[i]) === -1) newArr.push(array[i]);
   }
-  return n;
+  return newArr;
 }
