@@ -1,0 +1,7 @@
+#folder
+node_modules
+coverage
+
+#file
+*.log
+*.log.*
