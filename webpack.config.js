@@ -1,19 +1,18 @@
-var webpack = require('webpack');
+var webpack = require('webpack')
 
-module.exports = {
-	entry: __dirname + "src/mathOperation.js",
+var env = process.env.NODE_ENV
+var config = {
+	entry: __dirname + "/src/mathOperation.js",
 	output: {
-		path: __dirname + "build/",
+		path: __dirname + "/dist",
 		filename: 'arrayOperation.js'
 	},
 	devtool: "eval-source-map",
 	module: {
 		loaders: [
-			{ test: /\.json$/, loader: "json" },
-			{ test: /\.js$/, exclude: node_modules, loader: "babel" }
+			{ test: /\.js$/, exclude: /node_modules/, loader: "babel" }
 		]
-	},
-	resolve: {
-		extensions: ['', '.js', '.json']
 	}
 }
+
+module.exports = config

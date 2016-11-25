@@ -1,5 +1,6 @@
 // Karma configuration
 // Generated on Thu Nov 24 2016 11:17:31 GMT+0800 (CST)
+const webpackConfig = require('./webpack.config')
 
 module.exports = function(config) {
   config.set({
@@ -10,7 +11,7 @@ module.exports = function(config) {
 
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-    frameworks: ['mocha'],
+    frameworks: ['mocha', 'chai'],
 
 
     // list of files / patterns to load in the browser
@@ -66,6 +67,14 @@ module.exports = function(config) {
 
     // Concurrency level
     // how many browser should be started simultaneous
-    concurrency: Infinity
+    concurrency: Infinity,
+
+    webpack: webpackConfig,
+    webpackServer: {
+      stats: {
+        colors: true
+      },
+      noInfo: true
+    }
   })
 }

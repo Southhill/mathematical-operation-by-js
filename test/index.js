@@ -1,6 +1,5 @@
+/*
 import require from 'require'
-
-
 
 var allTestFiles = []
 var TEST_REGEXP = /(spec|test)\.js$/i
@@ -25,3 +24,7 @@ require.config({
   // we have to kickoff jasmine, as it is asynchronous
   callback: window.__karma__.start
 })
+*/
+
+var context = require.context('../src/', true, /\.js$/);
+context.keys().forEach(context);

@@ -2,7 +2,7 @@
 数组元素去重
  */
 export function uniqueArr(arr){
-  let newArr = []; //一个新的临时数组
+  let newArr = []; //返回的结果数组
   let len = arr.length;
   //遍历当前数组
   for(let i = 0; i < len; i++){
