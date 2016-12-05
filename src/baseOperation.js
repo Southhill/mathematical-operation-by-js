@@ -15,6 +15,16 @@ export function uniqueArr(arr){
 /*
 数组扁平化处理
  */
-export function steamroller(arr){
-
+export function steamroller(arr) {
+    var resultArr = [];
+    (function recArr(subArr) {
+        subArr.forEach(function(v) {
+            if (Array.isArray(v)) {
+                recArr(v);
+            } else {
+                resultArr.push(v);
+            }
+        });
+    })(arr);
+    return resultArr;
 }
