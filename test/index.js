@@ -1,5 +1,4 @@
 /*
-import require from 'require'
 
 var allTestFiles = []
 var TEST_REGEXP = /(spec|test)\.js$/i
@@ -26,5 +25,14 @@ require.config({
 })
 */
 
-var context = require.context('../src/', true, /\.js$/);
+var context = require.context('.', true, /\.js$/);
 context.keys().forEach(context);
+
+// describe("A suite of basic functions", function() {
+//     it("add",function(){
+//         expect(add(2, 3)).to.be.equal(5);
+//     });
+// });
+// function add(a,b) {
+// 	return a + b
+// }

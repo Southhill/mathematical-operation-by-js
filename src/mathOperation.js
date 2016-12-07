@@ -1,7 +1,6 @@
 import { uniqueArr } from './baseOperation.js'
-// var uniqueArr = require('./baseOperation.js')
 // 交集：两个数组的交集处理
-function diff(arr1, arr2) {
+export function diff(arr1, arr2) {
   //对arr1,arr2先进行去重处理。
   arr1 = uniqueArr(arr1)
   arr2 = uniqueArr(arr2)
@@ -21,7 +20,7 @@ function diff(arr1, arr2) {
 //并集：两个数组的并集处理
 
 //全排列：给定一个基本的数据类型，例：字符串，得到它的全排列，将结果存放到数组中返回。
-function permu(str) {
+export function permu(str) {
   var strArr = str.split('');
   var resultArr = [];
   var tempArr = [];

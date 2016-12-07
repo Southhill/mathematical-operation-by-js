@@ -1,18 +1,22 @@
 var webpack = require('webpack')
 
 var env = process.env.NODE_ENV
-var config = {
-	entry: __dirname + "/src/mathOperation.js",
-	output: {
-		path: __dirname + "/dist",
-		filename: 'arrayOperation.js'
-	},
-	devtool: "eval-source-map",
-	module: {
-		loaders: [
-			{ test: /\.js$/, exclude: /node_modules/, loader: "babel" }
-		]
-	}
+var webpackConfig = {
+    entry: __dirname + "src/baseOperation.js",
+    output: {
+        path: __dirname + "/lib",
+        filename: '[name].js'
+    },
+    devtool: "inline-source-map",
+    module: {
+        loaders: [
+            {
+                test: /\.js$/,
+				loader: "babel",
+                exclude: /node_modules/
+            }
+        ]
+    }
 }
 
-module.exports = config
+module.exports = webpackConfig
