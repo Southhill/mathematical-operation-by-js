@@ -1,5 +1,7 @@
-/*
-数组元素去重
+/**
+ * 数组元素去重
+ * @param  {Array} arr 待去重的数组
+ * @return {Array}     去重后的数组
  */
 export function uniqueArr(arr){
   let newArr = []; //返回的结果数组
@@ -12,8 +14,10 @@ export function uniqueArr(arr){
   }
   return newArr;
 }
-/*
-数组扁平化处理
+/**
+ * 数组扁平化处理
+ * @param  {Array} arr 待扁平化的数组
+ * @return {Array}     处理后的数组
  */
 export function steamroller(arr) {
     var resultArr = [];

@@ -1,5 +1,10 @@
 import { uniqueArr } from './baseOperation.js'
-// 交集：两个数组的交集处理
+/**
+ * 交集：两个数组的交集处理
+ * @param  {Array} arr1 待处理的数组1
+ * @param  {Array} arr2 待处理的数组2
+ * @return {Array}      返回的结果数组
+ */
 export function diff(arr1, arr2) {
   //对arr1,arr2先进行去重处理。
   arr1 = uniqueArr(arr1)
@@ -19,7 +24,12 @@ export function diff(arr1, arr2) {
 }
 //并集：两个数组的并集处理
 
-//全排列：给定一个基本的数据类型，例：字符串，得到它的全排列，将结果存放到数组中返回。
+/**
+ * 全排列：给定一个基本的数据类型。
+ * 例：字符串，得到它的全排列，将结果存放到数组中返回。
+ * @param  {String} str 传入的待排列的字符串参数
+ * @return {Array}     字符串全排列后的结果数组
+ */
 export function permu(str) {
   var strArr = str.split('');
   var resultArr = [];

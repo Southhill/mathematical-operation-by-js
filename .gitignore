@@ -1,6 +1,6 @@
 #folder
-node_modules
-coverage
+node_modules/
+coverage/
 
 #file
 *.log
