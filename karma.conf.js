@@ -5,6 +5,8 @@ const webpackConfig = require('./webpack.config')
 module.exports = function(config) {
   config.set({
     basePath: '',
+    port: 9999,
+    colors: true,
     frameworks: ['mocha', 'chai'],
     files: [
       'test/index.js'
@@ -21,8 +23,6 @@ module.exports = function(config) {
         type: 'html',
         dir: 'coverage'
     },
-    port: 9000,
-    colors: true,
     // possible values: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
     logLevel: config.LOG_INFO,
     autoWatch: true,
