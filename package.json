@@ -38,7 +38,6 @@
     "webpack": "^1.13.3"
   },
   "scripts": {
-    "mochatest": "mocha --compilers js:babel-core/register",
     "compile": "babel -d lib/ src/",
     "test": "karma start"
   }
