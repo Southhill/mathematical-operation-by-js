@@ -20,26 +20,16 @@
   "devDependencies": {
     "babel-core": "^6.7.2",
     "babel-loader": "^6.2.8",
-    "babel-plugin-istanbul": "^3.0.0",
-    "babel-preset-es2015": "^6.6.0",
-    "babel-preset-stage-2": "^6.18.0",
+    "babel-preset-es2015": "^6.24.0",
     "babel-register": "^6.14.0",
     "chai": "^3.5.0",
-    "jasmine-core": "*",
-    "karma": "^1.3.0",
-    "karma-chai": "^0.1.0",
-    "karma-chrome-launcher": "^2.0.0",
-    "karma-coverage": "^0.5.5",
-    "karma-mocha": "^1.3.0",
-    "karma-mocha-reporter": "^2.0.1",
-    "karma-webpack": "^1.8.0",
     "mocha": "^2.4.5",
     "requirejs": "^2.1.0",
     "webpack": "^1.13.3"
   },
   "scripts": {
-    "mochatest": "mocha --compilers js:babel-core/register",
-    "compile": "babel -d lib/ src/",
-    "test": "npm run compile && npm run mochatest"
+    "output": "export NODE_ENV=production && webpack --progress",
+    "test": "mocha --compilers js:babel-core/register",
+    "test:watch": "npm run test -- --watch"
   }
 }

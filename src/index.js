@@ -1,2 +1,2 @@
-export baseOperation from './baseOperation.js'
-export mathOperation from './mathOperation.js'
+import baseOperation from './baseOperation.js'
+import mathOperation from './mathOperation.js'
