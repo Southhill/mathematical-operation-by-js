@@ -1,6 +1,6 @@
 import { uniqueArr } from './baseOperation.js'
 /**
- * 交集：两个数组的交集处理
+ * 差集：两个数组的差集处理
  * @param  {Array} arr1 待处理的数组1
  * @param  {Array} arr2 待处理的数组2
  * @return {Array}      返回的结果数组
@@ -22,8 +22,41 @@ export function diff(arr1, arr2) {
     newArr = arr1.concat(arr2);
   return newArr;
 }
-//并集：两个数组的并集处理
-
+/**
+ * 并集：两个数组的并集处理
+ * @param  {Array} arr1 待处理的数组1
+ * @param  {Array} arr2 待处理的数组2
+ * @return {Array}      返回的结果数组
+ */
+export function union(arr1, arr2) {
+    if (!Array.isArray(arr1) || !Array.isArray(arr2)) {
+        throw new Error('args error, should be Array Type!');
+    }
+    for (let item of arr2) {
+        if (arr1.indexOf(item) === -1) {
+            arr1.push(item);
+        }
+    }
+    return arr1;
+}
+/**
+ * 交集：两个数组的交集处理，最终得到的数组无重复值。
+ * @param  {Array} arr1 待处理的数组1
+ * @param  {Array} arr2 待处理的数组2
+ * @return {Array}      返回的结果数组
+ */
+ export function intersection(arr1, arr2) {
+     if (!Array.isArray(arr1) || !Array.isArray(arr2)) {
+         throw new Error('args error, should be Array Type!');
+     }
+     let resultArr = [];
+     for (let item of arr2) {
+         if (arr1.indexOf(item) !== -1 && resultArr.indexOf(item) === -1) {
+             resultArr.push(item);
+         }
+     }
+     return resultArr;
+ }
 /**
  * 全排列：给定一个基本的数据类型。
  * 例：字符串，得到它的全排列，将结果存放到数组中返回。
@@ -34,7 +67,7 @@ export function permu(str) {
   var strArr = str.split('');
   var resultArr = [];
   var tempArr = [];
-  var len = str.length;
+  // var len = str.length;
   (function rec(arr){
     if (arr.length === 1) {
       resultArr.push(tempArr.concat(arr).join(''));

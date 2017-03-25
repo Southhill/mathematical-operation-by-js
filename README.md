@@ -1,2 +1,2 @@
 ## overview
-[Array],{Object} of Mathematical operation
+[Array] of Mathematical operation.
