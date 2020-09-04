@@ -89,3 +89,22 @@ export function permu(str) {
   })(strArr);
   return resultArr;
 }
+
+/**
+ * 创建一个项目为等差数列的数组
+ * @param {Number} length 数组长度
+ * @param {String} exp 等差数列的数学表达式，例如：3a+1
+ * @returns {Array}
+ */
+export function createNumArray(length, exp = 'a+1') {
+    if (typeof length !== 'number') throw new Error('length must be number type')
+
+    const reg = /^(?<a>\d+)?\s?a\s?(?:\+\s?(?<b>\d+))?$/
+    const expResult = exp.match(reg)
+
+    if (expResult === null) throw new Error('argument:exp must be valid regexp, for example:3a+1')
+
+    const { a = 1, b = 0 } = expResult.groups
+
+    return Array.from(Array(length), (_, idx) => Number(a * idx) + Number(b))
+}
