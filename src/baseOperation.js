@@ -12,7 +12,8 @@ export function uniqueArr(arr){
     //否则把当前项push到临时数组里面
     if (newArr.indexOf(arr[i]) === -1) newArr.push(arr[i]);
   }
-  return newArr;
+  
+    return newArr;
 }
 /**
  * 数组扁平化处理
@@ -30,5 +31,11 @@ export function steamroller(arr) {
             }
         });
     })(arr);
+    
     return resultArr;
 }
+
+// 最大公约数
+export const gcd = (a, b) => !b ? a : gcd(b, a % b) 
+// 最小公倍数
+export const lcm = (a, b) => a / gcd(a, b) * b
