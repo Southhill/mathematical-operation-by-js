@@ -1,22 +1,21 @@
 {
-  "name": "ArrayOfMathOperation",
+  "name": "mathematical-operation-by-js",
   "version": "1.0.0",
-  "description": "Array of Math opeartion",
-  "main": "src/index.js",
+  "description": "mathematical opeartion by js",
+  "main": "lib/index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Southhill/ArrayOfMathOperation.git"
+    "url": "https://github.com/Southhill/mathematical-operation-by-js"
   },
   "keywords": [
-    "Array",
     "MathOperation"
   ],
   "author": "Cao",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Southhill/ArrayOfMathOperation/issues"
+    "url": "https://github.com/Southhill/mathematical-operation-by-js/issues"
   },
-  "homepage": "https://github.com/Southhill/ArrayOfMathOperation#readme",
+  "homepage": "https://github.com/Southhill/mathematical-operation-by-js#readme",
   "devDependencies": {
     "babel-core": "^6.7.2",
     "babel-loader": "^6.2.8",
