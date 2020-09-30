@@ -12,7 +12,7 @@ describe('Array test', () => {
             expect(resultArr.length).to.equal(5);
         })
 
-        it('扁平化处理数组', () => {
+      it('扁平化处理数组', () => {
             let arr = [233, [2, 33], ['he', ['hello', 'world']]];
             let resultArr = steamroller(arr);
             expect(resultArr).to.eql([233, 2, 33, 'he', 'hello', 'world']);

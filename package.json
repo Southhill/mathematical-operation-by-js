@@ -4,8 +4,8 @@
   "description": "mathematical opeartion by js",
   "main": "lib/index.js",
   "scripts": {
-    "output": "webpack --production --progress",
-    "test": "mocha --compilers js:babel-core/register",
+    "output": "rollup src/index.js --format=cjs --file=lib/index.js",
+    "test": "mocha",
     "test:watch": "npm run test -- --watch"
   },
   "repository": {
@@ -22,13 +22,14 @@
   },
   "homepage": "https://github.com/Southhill/mathematical-operation-by-js#readme",
   "devDependencies": {
-    "babel-core": "^6.7.2",
-    "babel-loader": "^6.2.8",
-    "babel-preset-es2015": "^6.24.0",
-    "babel-register": "^6.14.0",
-    "chai": "^3.5.0",
-    "mocha": "^2.4.5",
+    "@babel/core": "^7.11.6",
+    "@babel/preset-env": "^7.11.5",
+    "@babel/register": "^7.11.5",
+    "chai": "^4.2.0",
+    "mocha": "^8.1.3",
     "requirejs": "^2.1.0",
-    "webpack": "^1.13.3"
-  }
+    "rimraf": "^3.0.2",
+    "rollup": "^2.28.2"
+  },
+  "dependencies": {}
 }
