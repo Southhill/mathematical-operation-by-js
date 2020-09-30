@@ -3,6 +3,11 @@
   "version": "1.0.0",
   "description": "mathematical opeartion by js",
   "main": "lib/index.js",
+  "scripts": {
+    "output": "webpack --production --progress",
+    "test": "mocha --compilers js:babel-core/register",
+    "test:watch": "npm run test -- --watch"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/Southhill/mathematical-operation-by-js"
@@ -25,10 +30,5 @@
     "mocha": "^2.4.5",
     "requirejs": "^2.1.0",
     "webpack": "^1.13.3"
-  },
-  "scripts": {
-    "output": "export NODE_ENV=production && webpack --progress",
-    "test": "mocha --compilers js:babel-core/register",
-    "test:watch": "npm run test -- --watch"
   }
 }

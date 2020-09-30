@@ -1,7 +1,7 @@
 import { expect } from 'chai'
 
 import { uniqueArr, steamroller } from '../src/baseOperation.js';
-import { diff, union, permu, intersection } from '../src/mathOperation.js';
+import { diff, union, permutation, intersection } from '../src/mathOperation.js';
 
 describe('Array test', () => {
     describe('baseOperation test', () => {
@@ -42,7 +42,7 @@ describe('Array test', () => {
         })
 
         it('全排列', () => {
-            let resultArr = permu('heo');
+            let resultArr = permutation('heo');
             expect(resultArr.length).to.equal(6);
             expect(resultArr).to.eql(['heo', 'hoe', 'eho', 'eoh', 'ohe', 'oeh']);
         })

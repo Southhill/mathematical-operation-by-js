@@ -63,7 +63,7 @@ export function union(arr1, arr2) {
  * @param  {String} str 传入的待排列的字符串参数
  * @return {Array}     字符串全排列后的结果数组
  */
-export function permu(str) {
+export function permutation(str) {
   var strArr = str.split('');
   var resultArr = [];
   var tempArr = [];
@@ -87,6 +87,7 @@ export function permu(str) {
       }
     }
   })(strArr);
+  
   return resultArr;
 }
 
