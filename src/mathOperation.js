@@ -57,38 +57,39 @@ export function union(arr1, arr2) {
      }
      return resultArr;
  }
+
 /**
  * 全排列：给定一个基本的数据类型。
  * 例：字符串，得到它的全排列，将结果存放到数组中返回。
  * @param  {String} str 传入的待排列的字符串参数
+ * @param {Function} cb 对最终的结果数组的处理函数
  * @return {Array}     字符串全排列后的结果数组
  */
-export function permutation(str) {
-  var strArr = str.split('');
-  var resultArr = [];
-  var tempArr = [];
-  // var len = str.length;
-  (function rec(arr){
-    if (arr.length === 1) {
-      resultArr.push(tempArr.concat(arr).join(''));
-      tempArr.pop();
-    } else {
-      var arr2 = arr.slice(0);
-      var len2 = arr2.length;
-      for (var i = 0;i <= len2; i++) {
-        if (i < len2) {
-          tempArr.push(arr2[i]);
-          var arr3 = arr2.slice(0);
-          arr3.splice(i, 1);
-          rec(arr3);
-        } else {
-          tempArr.pop();
-        }
-      }
+export function permute(str, cb) {
+  if (typeof str !== 'string') {
+    throw new Error('first argument must be string type.')
+  }
+  const result = []
+
+  function backtrack(paths, selectList) {
+    if (paths.length === str.length) {
+      result.push(paths.join(''))
+      return
     }
-  })(strArr);
-  
-  return resultArr;
+
+    selectList.forEach((val, idx) => {
+      // 做选择
+      paths.push(selectList.splice(idx, 1)[0])
+      backtrack(paths, selectList)
+      // 撤销选择
+      paths.pop()
+      selectList.splice(idx, 0, val)
+    })
+  }
+
+  backtrack([], str.split(''))
+
+  return typeof cb === 'function' ? cb(result) : result
 }
 
 /**
@@ -114,12 +115,12 @@ export function createNumArray(length, exp = 'a+1') {
  * 高斯消元法
  * @param {Array[[]]} mat 方程组的增广矩阵
  */
-function elimination(mat) { 
+function elimination(mat) {
   for (let i = 1,len = mat.length; i < len; i++) {
     for (let j = 0; j < i; j++) {
       // TODO: 被除数不能为0, 每次运算时，必须保证对角线上的元素不为0(即运算中的分母不为0)
       const coe = mat[i][j] / mat[j][j] // 系数
-  
+
       mat[i].forEach((val, idx) => {
         mat[i][idx] -= mat[j][idx] * coe
       })
@@ -154,7 +155,7 @@ function columnElimination(mat) {
       if (maxCI !== j) swap(maxCI, j)
 
       const coe = mat[i][j] / mat[j][j] // 系数
-  
+
       mat[i].forEach((val, idx) => {
         mat[i][idx] -= mat[j][idx] * coe
       })
@@ -163,7 +164,7 @@ function columnElimination(mat) {
 }
 
 /**
- * 返回当前方程组的解的状态  
+ * 返回当前方程组的解的状态
  * 解的状态：无解，多解，唯一解
  * @param {Matrix} mat 处理后的行阶梯阵
  */
