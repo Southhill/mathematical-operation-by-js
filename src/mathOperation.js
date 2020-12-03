@@ -71,23 +71,25 @@ export function permute(str, cb) {
   }
   const result = []
 
-  function backtrack(paths, selectList) {
+  function backtrack(paths) {
     if (paths.length === str.length) {
       result.push(paths.join(''))
       return
     }
 
-    selectList.forEach((val, idx) => {
+    for (let i = 0, len = str.length; i < len; i++) {
+      if paths.includes(str[i]) {
+        continue
+      }
       // 做选择
-      paths.push(selectList.splice(idx, 1)[0])
-      backtrack(paths, selectList)
+      paths.push(str[i])
+      backtrack(paths)
       // 撤销选择
       paths.pop()
-      selectList.splice(idx, 0, val)
-    })
+    }
   }
 
-  backtrack([], str.split(''))
+  backtrack([])
 
   return typeof cb === 'function' ? cb(result) : result
 }
