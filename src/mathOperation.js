@@ -78,7 +78,7 @@ export function permute(str, cb) {
     }
 
     for (let i = 0, len = str.length; i < len; i++) {
-      if paths.includes(str[i]) {
+      if (paths.includes(str[i])) {
         continue
       }
       // 做选择
