@@ -5,6 +5,7 @@
   "main": "lib/index.js",
   "scripts": {
     "output": "rollup src/index.js --format=cjs --file=lib/index.js",
+    "beautify": "npx prettier --write src/**/*.js",
     "test": "mocha",
     "test:watch": "npm run test -- --watch"
   },
