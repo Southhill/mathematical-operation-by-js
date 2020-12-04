@@ -59,30 +59,30 @@ export function union(arr1, arr2) {
  }
 
 /**
- * 全排列：给定一个基本的数据类型。
- * 例：字符串，得到它的全排列，将结果存放到数组中返回。
- * @param  {String} str 传入的待排列的字符串参数
+ * 全排列：给定可被迭代为原始值的数据类型
+ * 得到它的全排列，将结果存放到数组中返回。
+ * @param  {String|Array<String|Number>} sortBase 传入的待排列的字符串参数，或者为字符串|数值数组
  * @param {Function} cb 对最终的结果数组的处理函数
  * @return {Array}     字符串全排列后的结果数组
  */
-export function permute(str, cb) {
-  if (typeof str !== 'string') {
-    throw new Error('first argument must be string type.')
+export function permute(sortBase, cb) {
+  if (!(typeof sortBase === 'string' || (Array.isArray(sortBase) && sortBase.every(val => ['string', 'number'].includes(typeof val))))) {
+    throw new Error('first argument must be string type or array type that can be iterated to the original value.')
   }
   const result = []
 
   function backtrack(paths) {
-    if (paths.length === str.length) {
-      result.push(paths.join(''))
+    if (paths.length === sortBase.length) {
+      result.push([...paths])
       return
     }
 
-    for (let i = 0, len = str.length; i < len; i++) {
-      if (paths.includes(str[i])) {
+    for (let i = 0, len = sortBase.length; i < len; i++) {
+      if (paths.includes(sortBase[i])) {
         continue
       }
       // 做选择
-      paths.push(str[i])
+      paths.push(sortBase[i])
       backtrack(paths)
       // 撤销选择
       paths.pop()
